@@ -1,9 +1,3 @@
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
 ## How to Install lara-graphql
 
@@ -18,3 +12,25 @@ update your composer dependencies
 migrate database 
 
 ``php artisan migrate``
+
+start websocket server
+
+``php artisan websocket:init``
+
+Now open your console in both browser and write this
+
+``var conn = new WebSocket('ws://127.0.0.1:{{your_port}}');``
+
+same like this write the following lines and enter in both browser:
+
+``conn.onopen = function(e) { console.log("Connection established!"); };``
+
+
+``conn.onmessage = function(e) { console.log(e.data); };``
+
+
+``conn.send(JSON.stringify({command: "subscribe", channel: "mychannel"}));``
+
+Now in only one browser's console write this code
+
+``conn.send(JSON.stringify({command: "message", message: "this is message"}));``
