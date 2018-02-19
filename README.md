@@ -9,7 +9,7 @@
 
 first of all
 
-``git clone https://github.com/hudabikhoir/lara-graphql``
+``git clone https://github.com/hudabikhoir/lara-websocket.git``
 
 update your composer dependencies
 
